@@ -4,6 +4,22 @@
   "version": "0.0.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
+  "author": {
+    "name": "maxoyed",
+    "email": "maxoyed@gmail.com",
+    "url": "https://github.com/maxoyed"
+  },
+  "contributors": [
+    "maxoyed <maxoyed@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxoyed/koishi-plugin-qianfan-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxoyed/koishi-plugin-qianfan-service/issues"
+  },
+  "homepage": "https://github.com/maxoyed/koishi-plugin-qianfan-service#readme",
   "files": [
     "lib",
     "dist"
@@ -17,5 +33,21 @@
   ],
   "peerDependencies": {
     "koishi": "^4.15.4"
+  },
+  "dependencies": {
+    "qianfan": "^0.0.4"
+  },
+  "koishi": {
+    "description": {
+      "zh": "百度智能云千帆大模型平台基础服务"
+    },
+    "service": {
+      "implements": [
+        "qianfan"
+      ]
+    },
+    "locales": [
+      "zh"
+    ]
   }
 }
