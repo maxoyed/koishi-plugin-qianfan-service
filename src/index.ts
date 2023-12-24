@@ -31,12 +31,14 @@ export class QianfanService extends Service {
    * 发起对话请求
    * @param body 请求体
    * @param model 使用的模型
+   * @param endpoint 申请发布时填写的API地址
    */
   async chat<T extends ChatModel>(
     body: ChatBody<T>,
-    model: T = "ERNIE-Bot-4" as T
+    model: T = "ERNIE-Bot-4" as T,
+    endpoint = ""
   ) {
-    const resp = await this.client.chat(body, model);
+    const resp = await this.client.chat(body, model, endpoint);
     this.logger.debug({
       body,
       resp,
