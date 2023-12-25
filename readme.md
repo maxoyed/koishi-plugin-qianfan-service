@@ -29,6 +29,15 @@
 - `body`: 请求参数
 - 返回值: Text2ImageResp
 
+### ctx.qianfan.plugin(endpoint: string, plugins: PluginName, body: PluginBody)
+
+发起文生图请求
+
+- `endpoint`: 服务地址后缀
+- `plugins`: 插件列表, 支持 `['uuid-zhishiku']`, `['uuid-chatocr']`, `['uuid-weatherforecast']`
+- `body`: 请求参数
+- 返回值: PluginBody
+
 ## 调用示例
 
 ```typescript
@@ -54,4 +63,11 @@ const body = {
 }
 const resp = await ctx.qianfan.imagine(body)
 logger.debug(resp.data[0].b64_image) // 处理结果
+
+// 调用插件
+const body = {
+  query: '焊接头能沾水吗？',
+}
+const resp = await ctx.qianfan.plugin('YOUR_SERVICE_ENDPOINT', ['uuid-zhishiku'], body)
+logger.debug(resp.result) // 处理结果
 ```

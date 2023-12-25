@@ -1,6 +1,6 @@
 import { Context, Schema, Service } from "koishi";
 import { Qianfan } from "qianfan";
-import { ChatBody, ChatModel, Text2ImageBody } from "qianfan/dist/interface";
+import type { ChatBody, ChatModel, Text2ImageBody, PluginName, PluginBody } from "qianfan/dist/interface";
 
 export const name = "qianfan-service";
 
@@ -52,6 +52,23 @@ export class QianfanService extends Service {
    */
   async imagine(body: Text2ImageBody) {
     const resp = await this.client.text2image(body);
+    this.logger.debug({
+      body,
+      resp,
+    });
+    return resp;
+  }
+
+
+  /**
+   * 发起插件应用请求
+   * @param endpoint 服务地址后缀
+   * @param plugins 插件列表
+   * @param body 请求参数
+   * @returns Promise<PluginResp>
+   */
+  async plugin<T extends PluginName>(endpoint: string, plugins: T, body: PluginBody<T>) {
+    const resp = await this.client.plugin(endpoint, plugins, body);
     this.logger.debug({
       body,
       resp,

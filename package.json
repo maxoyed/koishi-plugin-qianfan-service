@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-qianfan-service",
   "description": "百度智能云千帆大模型平台基础服务",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "author": {
@@ -25,17 +25,16 @@
     "dist"
   ],
   "license": "MIT",
-  "scripts": {},
   "keywords": [
     "chatbot",
     "koishi",
     "plugin"
   ],
   "peerDependencies": {
-    "koishi": "^4.15.6"
+    "koishi": "^4.16.2"
   },
   "dependencies": {
-    "qianfan": "^0.0.7"
+    "qianfan": "^0.0.8"
   },
   "koishi": {
     "description": {
